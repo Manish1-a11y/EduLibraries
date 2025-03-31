@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EduLibraries - Your go-to platform for academic resources, including semester-wise notes, syllabi, and previous year question papers.">
+    <title>EduLibraries - Unlock Your Academic Potential</title>
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Root variables for easy theming */
+        :root {
+            --primary-color: #1abc9c;
+            --primary-dark: #16a085;
+            --text-color: #333;
+            --text-light: #555;
+            --background-color: #f9f9f9;
+            --section-bg: #ffffff;
+            --dark-bg: #2c3e50;
+            --footer-bg: #2d3237;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease-in-out;
+        }
+
+        /* Reset and base styles */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .text-highlight {
+            color: var(--primary-color);
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--section-bg);
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(26, 188, 156, 0.1) 0%, rgba(22, 160, 133, 0.1) 100%);
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: var(--text-light);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Courses Section */
+        .courses {
+            background-color: var(--section-bg);
+        }
+
+        .course-cards {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .course-card {
+            background: var(--section-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-img {
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        .course-content {
+            padding: 25px;
+        }
+
+        .course-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Course Details Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            animation: modalopen 0.5s;
+        }
+
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .close-modal:hover {
+            color: var(--text-color);
+        }
+
+        .course-details-header {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .course-details-img {
+            width: 200px;
+            height: 150px;
+            background-color: #eee;
+            border-radius: 8px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .course-details-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .course-details-info p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .course-details-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .tab-btn.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .semester-resources-list {
+            margin-top: 20px;
+        }
+
+        .resource-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        .resource-item:last-child {
+            border-bottom: none;
+        }
+
+        .resource-name {
+            font-weight: 500;
+        }
+
+        .download-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .download-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Semester Resources */
+        .semester-resources {
+            background-color: var(--dark-bg);
+            color: white;
+        }
+
+        .semester-resources .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .semesters {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .semester {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 280px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .semester:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .semester h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .semester p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .resource-library {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .how-it-works::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .how-it-works .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .step {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 250px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .step p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: #f5f8f6;
+        }
+
+        .testimonial-cards {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+        }
+
+        .testimonial-card {
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            scroll-snap-align: start;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Login/Signup Forms */
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            padding: 80px 0;
+        }
+
+        .auth-form {
+            background-color: var(--section-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .auth-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .form-actions {
+            margin-top: 30px;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-light);
+        }
+
+        .form-footer a {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Search Page */
+        .search-container {
+            padding: 80px 0;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .search-box button {
+            padding: 0 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-box button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .search-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .search-result-card {
+            background-color: var(--section-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .search-result-content {
+            padding: 20px;
+        }
+
+        .search-result-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .search-result-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* Dashboard */
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: calc(100vh - 70px);
+            padding-top: 70px;
+        }
+
+        .dashboard-sidebar {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 30px 0;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-menu i {
+            width: 20px;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .dashboard-content {
+            padding: 30px;
+            background-color: var(--background-color);
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-card {
+            background-color: var(--section-bg);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .dashboard-card h3 {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .dashboard-card p {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--footer-bg);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .contact-info i {
+            color: var(--primary-color);
+            margin-top: 3px;
+        }
+        
+        .contact-info a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.5);
+            transition: var(--transition);
+        }
+        
+        .footer-bottom a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .course-details-header {
+                flex-direction: column;
+            }
+            
+            .course-details-img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-sidebar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--section-bg);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transition: var(--transition);
+                gap: 30px;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-buttons {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .modal-content {
+                margin: 20px auto;
+                padding: 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+            
+            .footer-bottom nav {
+                gap: 15px;
+            }
+
+            .steps-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .course-details-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab-btn {
+                flex: 1 0 50%;
+                text-align: center;
+            }
+
+            .auth-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">EduLibraries</a>
+            
+            <nav class="nav-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#courses">Courses</a>
+                <a href="index.html#resources">Resources</a>
+                <a href="index.html#testimonials">Testimonials</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-secondary">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page (index.html) -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Unlock Your <span class="text-highlight">Academic Potential</span> with EduLibraries</h1>
+                <p class="hero-description">Access semester-wise notes, syllabi, and previous year question papers all in one place. Our platform provides a structured and user-friendly interface, empowering students to achieve academic excellence.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#courses" class="btn btn-primary">Explore Courses</a>
+                    <a href="#how-it-works" class="btn btn-secondary">How It Works</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About <span class="text-highlight">EduLibraries</span></h2>
+                <p class="section-subtitle">We're dedicated to providing high-quality academic resources to students worldwide, helping them succeed in their educational journey.</p>
+                
+                <div class="about-content">
+                    <p>EduLibraries was founded with the mission to democratize access to educational resources. Our platform aggregates materials from top institutions and educators, organizing them in a way that makes learning more efficient and effective.</p>
+                    <p>With over 10,000 resources across various disciplines, we serve students from undergraduate to postgraduate levels. Our team of educators and technologists work continuously to improve the platform and expand our collection.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="section courses">
+            <div class="container">
+                <h2 class="section-title">Our <span class="text-highlight">Courses</span></h2>
+                <p class="section-subtitle">Browse our comprehensive collection of academic resources organized by course and semester.</p>
+                
+                <div class="course-cards">
+                    <!-- Course Card 1 - Computer Science -->
+                    <div class="course-card" onclick="openCourseModal('computer-science')">
+                        <div class="course-img">
+                            <i class="fas fa-laptop-code" style="font-size: 3rem;"></i>
+                        </div>
+                        <div class="course-content">
+                            <h3 class="course-title">School of Computing</h3>
+                            <p class="course-description">Master programming, algorithms, and system design with our comprehensive computer science resources.</p>
+                            <div class="btn btn-secondary">View Details</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Card 2 - Business -->
+                    <div class="course-card" onclick="openCourseModal('business')">
+                        <div class="course-img">
+                            <i class="fas fa-business-time" style="font-size: 3rem;"></i>
+                        </div>
+                        <div class="course-content">
+                            <h3 class="course-title">Business and Management</h3>
+                            <p class="course-description">Learn business strategies, management principles, and economic theories from top institutions.</p>
+                            <div class="btn btn-secondary">View Details</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Card 3 - Engineering -->
+                    <div class="course-card" onclick="openCourseModal('engineering')">
+                        <div class="course-img">
+                            <i class="fas fa-robot" style="font-size: 3rem;"></i>
+                        </div>
+                        <div class="course-content">
+                            <h3 class="course-title">Computer Science Engineering</h3>
+                            <p class="course-description">From fundamentals to advanced topics, our engineering resources cover all aspects of the discipline.</p>
+                            <div class="btn btn-secondary">View Details</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Details Modal -->
+        <div id="courseModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <div id="courseModalContent">
+                    <!-- Content will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <section id="resources" class="section semester-resources">
+            <div class="container">
+                <h2 class="section-title">Organized by <span class="text-highlight">Semester</span></h2>
+                <p class="section-subtitle">All resources are neatly organized by semester, making it easy to find exactly what you need for your current studies.</p>
+                
+                <div class="semesters">
+                    <div class="semester">
+                        <h3>First Semester</h3>
+                        <p>Foundational courses and introductory materials to start your academic journey.</p>
+                    </div>
+                    
+                    <div class="semester">
+                        <h3>Second Semester</h3>
+                        <p>Build on your knowledge with more advanced concepts and applications.</p>
+                    </div>
+                    
+                    <div class="semester">
+                        <h3>Third Semester</h3>
+                        <p>Specialized courses that delve deeper into your chosen field of study.</p>
+                    </div>
+
+                    <div class="semester">
+                        <h3>Fourth Semester</h3>
+                        <p>Advanced topics and practical applications in your discipline.</p>
+                    </div>
+                </div>
+                
+                <div class="resource-library">
+                    <h3>Explore Our Complete <span class="text-highlight">Resource Library</span></h3>
+                    <p>Thousands of notes, syllabi, and past papers organized for easy access.</p>
+                    <a href="resources.html" class="btn btn-primary">Browse All Resources</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="section how-it-works">
+            <div class="container">
+                <h2 class="section-title">How EduLibraries <span class="text-highlight">Works</span></h2>
+                <p class="section-subtitle">Getting started is simple. Follow these steps to access the resources you need.</p>
+                
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Create Account</h3>
+                        <p>Register for free to get full access to all our resources and features.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Find Resources</h3>
+                        <p>Browse by course, semester, or use our powerful search functionality.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Download Materials</h3>
+                        <p>Access notes, syllabi, and past papers with a single click.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Ace Your Exams</h3>
+                        <p>Study smarter with our organized resources and succeed academically.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section testimonials">
+            <div class="container">
+                <h2 class="section-title">What Students <span class="text-highlight">Say</span></h2>
+                <p class="section-subtitle">Hear from students who have used EduLibraries to enhance their learning experience.</p>
+                
+                <div class="testimonial-cards">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"EduLibraries helped me find all the resources I needed for my semester in one place. The organized notes and past papers were invaluable for my exams."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SJ</div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Computer Science Student</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"As a business student, having access to well-structured course materials from different universities gave me a broader perspective on my subjects."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MC</div>
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <p>Business Administration</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The semester-wise organization made it so easy to find exactly what I needed. Saved me countless hours of searching across different sources."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">PP</div>
+                            <div class="author-info">
+                                <h4>Priya Patel</h4>
+                                <p>Engineering Student</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">EduLibraries</a>
+                    <p>Empowering students worldwide with accessible, high-quality academic resources.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/EduLibraries" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/EduLibraries" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/edulibraries" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/edulibraries" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/c/EduLibraries" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="mailto:contact@edulibraries.com" class="social-link" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#courses">Courses</a></li>
+                        <li><a href="index.html#resources">Resources</a></li>
+                        <li><a href="index.html#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="resources.html">Lecture Notes</a></li>
+                        <li><a href="resources.html">Syllabi</a></li>
+                        <li><a href="resources.html">Past Papers</a></li>
+                        <li><a href="resources.html">Study Guides</a></li>
+                        <li><a href="resources.html">Video Lectures</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Education Street, Academic City, AC 12345</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+11234567890">+1 (123) 456-7890</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contact@edulibraries.com">contact@edulibraries.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Friday: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 EduLibraries. All rights reserved.</p>
+                <nav>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookie Policy</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Additional Pages (would be separate HTML files in a real implementation) -->
+    
+    <!-- Login Page (login.html) -->
+    <div id="login-page" style="display: none;">
+        <section class="auth-container">
+            <div class="auth-form">
+                <h2>Login to Your Account</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                    </div>
+                </form>
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="register.html">Register here</a></p>
+                    <p><a href="forgot-password.html">Forgot your password?</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Register Page (register.html) -->
+    <div id="register-page" style="display: none;">
+        <section class="auth-container">
+            <div class="auth-form">
+                <h2>Create Your Account</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="register-name">Full Name</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email Address</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Register</button>
+                    </div>
+                </form>
+                <div class="form-footer">
+                    <p>Already have an account? <a href="login.html">Login here</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Resources Page (resources.html) -->
+    <div id="resources-page" style="display: none;">
+        <section class="search-container">
+            <div class="container">
+                <h2 class="section-title">Resource <span class="text-highlight">Library</span></h2>
+                <p class="section-subtitle">Search and browse our extensive collection of academic resources.</p>
+                
+                <div class="search-box">
+                    <input type="text" placeholder="Search for notes, syllabi, past papers...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="search-results">
+                    <div class="search-result-card">
+                        <div class="search-result-content">
+                            <h3 class="search-result-title">Data Structures and Algorithms</h3>
+                            <div class="search-result-meta">
+                                <span>Computer Science</span>
+                                <span>Semester 3</span>
+                            </div>
+                            <p>Comprehensive notes covering all major data structures and algorithms with code examples.</p>
+                            <a href="#" class="btn btn-secondary" style="margin-top: 15px;">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <div class="search-result-card">
+                        <div class="search-result-content">
+                            <h3 class="search-result-title">Principles of Marketing</h3>
+                            <div class="search-result-meta">
+                                <span>Business</span>
+                                <span>Semester 2</span>
+                            </div>
+                            <p>Complete syllabus with case studies and marketing frameworks for business students.</p>
+                            <a href="#" class="btn btn-secondary" style="margin-top: 15px;">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <div class="search-result-card">
+                        <div class="search-result-content">
+                            <h3 class="search-result-title">Circuit Theory</h3>
+                            <div class="search-result-meta">
+                                <span>Engineering</span>
+                                <span>Semester 1</span>
+                            </div>
+                            <p>Past exam papers with solutions for circuit theory and analysis.</p>
+                            <a href="#" class="btn btn-secondary" style="margin-top: 15px;">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page (contact.html) -->
+    <div id="contact-page" style="display: none;">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Contact <span class="text-highlight">Us</span></h2>
+                <p class="section-subtitle">Have questions or feedback? We'd love to hear from you.</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px;">
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Send Us a Message</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="contact-name">Your Name</label>
+                                <input type="text" id="contact-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-subject">Subject</label>
+                                <input type="text" id="contact-subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message">Message</label>
+                                <textarea id="contact-message" rows="5" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif;"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Contact Information</h3>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 Education Street, Academic City, AC 12345</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+11234567890">+1 (123) 456-7890</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:contact@edulibraries.com">contact@edulibraries.com</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>Monday - Friday: 9:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                        
+                        <h3 style="margin: 30px 0 20px;">Frequently Asked Questions</h3>
+                        <div style="margin-bottom: 15px;">
+                            <h4 style="margin-bottom: 5px;">How do I access premium resources?</h4>
+                            <p style="color: var(--text-light);">Premium resources are available to registered users. Simply create an account to get started.</p>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <h4 style="margin-bottom: 5px;">Can I contribute my own materials?</h4>
+                            <p style="color: var(--text-light);">Yes! We welcome contributions from educators and students. Contact us for more information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Dashboard Page (dashboard.html) -->
+    <div id="dashboard-page" style="display: none;">
+        <div class="dashboard-container">
+            <div class="dashboard-sidebar">
+                <ul class="sidebar-menu">
+                    <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="my-courses.html"><i class="fas fa-book"></i> My Courses</a></li>
+                    <li><a href="my-resources.html"><i class="fas fa-file-alt"></i> My Resources</a></li>
+                    <li><a href="bookmarks.html"><i class="fas fa-bookmark"></i> Bookmarks</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="help.html"><i class="fas fa-question-circle"></i> Help</a></li>
+                    <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+            
+            <div class="dashboard-content">
+                <div class="dashboard-header">
+                    <h2>Dashboard</h2>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="position: relative;">
+                            <i class="fas fa-bell" style="font-size: 1.2rem; color: var(--text-light);"></i>
+                            <span style="position: absolute; top: -5px; right: -5px; background-color: var(--primary-color); color: white; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem;">3</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--primary-color); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;">JD</div>
+                            <span>John Doe</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-cards">
+                    <div class="dashboard-card">
+                        <h3>Enrolled Courses</h3>
+                        <p>5</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Downloaded Resources</h3>
+                        <p>24</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Bookmarked Items</h3>
+                        <p>12</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Recent Activity</h3>
+                        <p>3</p>
+                    </div>
+                </div>
+                
+                <h3 style="margin-bottom: 20px;">Recent Resources</h3>
+                <div style="background-color: var(--section-bg); border-radius: 10px; padding: 20px; box-shadow: var(--shadow);">
+                    <div style="display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #eee; align-items: center;">
+                        <div>
+                            <div style="font-weight: 500;">Data Structures Notes</div>
+                            <small style="color: var(--text-light);">Computer Science • Semester 3 • PDF</small>
+                        </div>
+                        <a href="#" class="download-btn">Download</a>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #eee; align-items: center;">
+                        <div>
+                            <div style="font-weight: 500;">Marketing Principles</div>
+                            <small style="color: var(--text-light);">Business • Semester 2 • PPT</small>
+                        </div>
+                        <a href="#" class="download-btn">Download</a>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 15px; align-items: center;">
+                        <div>
+                            <div style="font-weight: 500;">Circuit Theory Past Papers</div>
+                            <small style="color: var(--text-light);">Engineering • Semester 1 • ZIP</small>
+                        </div>
+                        <a href="#" class="download-btn">Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Course data - would typically come from a database in a real application
+        const courses = {
+            'computer-science': {
+                title: 'School of Computing',
+                description: 'Our Computer Science program offers comprehensive resources covering programming fundamentals, algorithms, data structures, artificial intelligence, and more. Designed to support students at all levels, from beginners to advanced learners.',
+                icon: 'fas fa-laptop-code',
+                semesters: {
+                    'Semester 1': [
+                        { name: 'Introduction to Programming', type: 'Notes', format: 'PDF' },
+                        { name: 'Discrete Mathematics', type: 'Syllabus', format: 'PDF' },
+                        { name: 'Computer Fundamentals', type: 'Past Papers', format: 'ZIP' },
+                        { name: 'Digital Logic Design', type: 'Lecture Slides', format: 'PPT' }
+                    ],
+                    'Semester 2': [
+                        { name: 'Data Structures', type: 'Notes', format: 'PDF' },
+                        { name: 'Object-Oriented Programming', type: 'Lab Manuals', format: 'PDF' },
+                        { name: 'Computer Architecture', type: 'Past Papers', format: 'ZIP' },
+                        { name: 'Database Systems', type: 'Project Guidelines', format: 'DOC' }
+                    ],
+                    'Semester 3': [
+                        { name: 'Algorithms', type: 'Notes', format: 'PDF' },
+                        { name: 'Operating Systems', type: 'Lab Exercises', format: 'PDF' },
+                        { name: 'Computer Networks', type: 'Past Papers', format: 'ZIP' },
+                        { name: 'Software Engineering', type: 'Case Studies', format: 'PDF' }
+                    ],
+                    'Semester 4': [
+                        { name: 'Artificial Intelligence', type: 'Notes', format: 'PDF' },
+                        { name: 'Machine Learning', type: 'Code Samples', format: 'ZIP' },
+                        { name: 'Cloud Computing', type: 'Lecture Slides', format: 'PPT' },
+                        { name: 'Cybersecurity', type: 'Practice Problems', format: 'PDF' }
+                    ],
+                    'Semester 5': [
+                        { name: 'Data Science', type: 'Notes', format: 'PDF' },
+                        { name: 'Big Data Analytics', type: 'Case Studies', format: 'PDF' },
+                        { name: 'Blockchain Technology', type: 'Research Papers', format: 'PDF' },
+                        { name: 'Internet of Things', type: 'Project Templates', format: 'DOC' }
+                    ],
+                    'Semester 6': [
+                        { name: 'Advanced Algorithms', type: 'Notes', format: 'PDF' },
+                        { name: 'Distributed Systems', type: 'Research Papers', format: 'PDF' },
+                        { name: 'Natural Language Processing', type: 'Code Samples', format: 'ZIP' },
+                        { name: 'Capstone Project Guidelines', type: 'Templates', format: 'DOC' }
+                    ]
+                },
+                faculty: 'Dr. Alan Turing, Prof. Grace Hopper, Dr. Donald Knuth',
+                duration: '4 Years',
+                credits: '120 Credit Hours'
+            },
+            'business': {
+                title: 'Business and Management',
+                description: 'The Business and Management program provides resources on economics, marketing, finance, organizational behavior, and strategic management. Ideal for students pursuing careers in business administration and entrepreneurship.',
+                icon: 'fas fa-business-time',
+                semesters: {
+                    'Semester 1': [
+                        { name: 'Principles of Management', type: 'Notes', format: 'PDF' },
+                        { name: 'Microeconomics', type: 'Case Studies', format: 'PDF' },
+                        { name: 'Business Mathematics', type: 'Practice Problems', format: 'PDF' },
+                        { name: 'Financial Accounting', type: 'Past Papers', format: 'ZIP' }
+                    ],
+                    'Semester 2': [
+                        { name: 'Macroeconomics', type: 'Lecture Notes', format: 'PDF' },
+                        { name: 'Business Statistics', type: 'Worksheets', format: 'PDF' },
+                        { name: 'Marketing Principles', type: 'Project Templates', format: 'DOC' },
+                        { name: 'Organizational Behavior', type: 'Case Studies', format: 'PDF' }
+                    ],
+                    'Semester 3': [
+                        { name: 'Financial Management', type: 'Notes', format: 'PDF' },
+                        { name: 'Business Law', type: 'Case Studies', format: 'PDF' },
+                        { name: 'Operations Management', type: 'Practice Problems', format: 'PDF' },
+                        { name: 'Consumer Behavior', type: 'Research Papers', format: 'PDF' }
+                    ],
+                    'Semester 4': [
+                        { name: 'Strategic Management', type: 'Notes', format: 'PDF' },
+                        { name: 'International Business', type: 'Case Studies', format: 'PDF' },
+                        { name: 'Entrepreneurship', type: 'Business Plan Templates', format: 'DOC' },
+                        { name: 'Business Analytics', type: 'Data Sets', format: 'ZIP' }
+                    ],
+                    'Semester 5': [
+                        { name: 'Digital Marketing', type: 'Notes', format: 'PDF' },
+                        { name: 'Corporate Finance', type: 'Case Studies', format: 'PDF' },
+                        { name: 'Supply Chain Management', type: 'Practice Problems', format: 'PDF' },
+                        { name: 'Leadership Skills', type: 'Self-Assessment Tools', format: 'DOC' }
+                    ],
+                    'Semester 6': [
+                        { name: 'Business Ethics', type: 'Case Studies', format: 'PDF' },
+                        { name: 'Project Management', type: 'Templates', format: 'DOC' },
+                        { name: 'International Marketing', type: 'Market Research', format: 'PDF' },
+                        { name: 'Capstone Project Guidelines', type: 'Templates', format: 'DOC' }
+                    ]
+                },
+                faculty: 'Prof. Peter Drucker, Dr. Michael Porter, Prof. Philip Kotler',
+                duration: '3 Years',
+                credits: '90 Credit Hours'
+            },
+            'engineering': {
+                title: 'Computer Science Engineering',
+                description: 'Our Engineering program covers core engineering principles across various disciplines including mechanical, electrical, civil, and chemical engineering. Resources include practical lab manuals, design projects, and technical references.',
+                icon: 'fas fa-robot',
+                semesters: {
+                    'Semester 1': [
+                        { name: 'Engineering Mathematics', type: 'Notes', format: 'PDF' },
+                        { name: 'Basic Electronics', type: 'Lab Manuals', format: 'PDF' },
+                        { name: 'Engineering Drawing', type: 'Templates', format: 'DWG' },
+                        { name: 'Programming for Engineers', type: 'Code Samples', format: 'ZIP' }
+                    ],
+                    'Semester 2': [
+                        { name: 'Data Structures and Algorithms', type: 'Notes', format: 'PDF' },
+                        { name: 'Computer Organization', type: 'Lab Exercises', format: 'PDF' },
+                        { name: 'Discrete Mathematics', type: 'Practice Problems', format: 'PDF' },
+                        { name: 'Digital Logic Design', type: 'Circuit Diagrams', format: 'PDF' }
+                    ],
+                    'Semester 3': [
+                        { name: 'Operating Systems', type: 'Notes', format: 'PDF' },
+                        { name: 'Database Management Systems', type: 'Lab Exercises', format: 'PDF' },
+                        { name: 'Computer Networks', type: 'Network Diagrams', format: 'PDF' },
+                        { name: 'Theory of Computation', type: 'Practice Problems', format: 'PDF' }
+                    ],
+                    'Semester 4': [
+                        { name: 'Software Engineering', type: 'Notes', format: 'PDF' },
+                        { name: 'Compiler Design', type: 'Lab Exercises', format: 'PDF' },
+                        { name: 'Artificial Intelligence', type: 'Code Samples', format: 'ZIP' },
+                        { name: 'Computer Graphics', type: 'Project Files', format: 'ZIP' }
+                    ],
+                    'Semester 5': [
+                        { name: 'Machine Learning', type: 'Notes', format: 'PDF' },
+                        { name: 'Cloud Computing', type: 'Lab Exercises', format: 'PDF' },
+                        { name: 'Big Data Analytics', type: 'Data Sets', format: 'ZIP' },
+                        { name: 'Internet of Things', type: 'Project Guidelines', format: 'DOC' }
+                    ],
+                    'Semester 6': [
+                        { name: 'Cybersecurity', type: 'Notes', format: 'PDF' },
+                        { name: 'Blockchain Technology', type: 'Case Studies', format: 'PDF' },
+                        { name: 'Distributed Systems', type: 'Research Papers', format: 'PDF' },
+                        { name: 'Capstone Project Guidelines', type: 'Templates', format: 'DOC' }
+                    ],
+                    'Semester 7': [
+                        { name: 'Advanced Algorithms', type: 'Notes', format: 'PDF' },
+                        { name: 'Natural Language Processing', type: 'Code Samples', format: 'ZIP' },
+                        { name: 'Computer Vision', type: 'Image Datasets', format: 'ZIP' },
+                        { name: 'Research Methodology', type: 'Templates', format: 'DOC' }
+                    ],
+                    'Semester 8': [
+                        { name: 'Project Management', type: 'Notes', format: 'PDF' },
+                        { name: 'Technical Writing', type: 'Templates', format: 'DOC' },
+                        { name: 'Industry Case Studies', type: 'PDF', format: 'PDF' },
+                        { name: 'Final Project Submission', type: 'Guidelines', format: 'DOC' }
+                    ]
+                },
+            //     faculty: 'Prof. Nikola Tesla, Dr. Ada Lovelace, Prof. Steve Wozniak',
+            //     duration: '4 Years',
+            //     credits: '140 Credit Hours'
+             }
+        };
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            header.classList.toggle('sticky', window.scrollY > 50);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Modal functionality
+        function openCourseModal(courseId) {
+            const course = courses[courseId];
+            const modal = document.getElementById('courseModal');
+            const modalContent = document.getElementById('courseModalContent');
+            
+            // Generate tab buttons for all semesters
+            let tabButtons = '';
+            Object.keys(course.semesters).forEach((semester, index) => {
+                const tabId = `semester${index + 1}`;
+                const activeClass = index === 0 ? 'active' : '';
+                tabButtons += `<div class="tab-btn ${activeClass}" onclick="switchTab(event, '${tabId}')">${semester}</div>`;
+            });
+            
+            // Generate tab content for all semesters
+            let tabContents = '';
+            Object.entries(course.semesters).forEach(([semester, resources], index) => {
+                const tabId = `semester${index + 1}`;
+                const activeClass = index === 0 ? 'active' : '';
+                tabContents += `
+                    <div id="${tabId}" class="tab-content ${activeClass}">
+                        <h3>${semester} Resources</h3>
+                        <div class="semester-resources-list">
+                            ${generateResourceList(resources)}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Generate modal content
+            let content = `
+                <div class="course-details-header">
+                    <div class="course-details-img">
+                        <i class="${course.icon}" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="course-details-info">
+                        <h2>${course.title}</h2>
+                        <p>${course.description}</p>
+                        <p><strong>Faculty:</strong> ${course.faculty}</p>
+                        <p><strong>Duration:</strong> ${course.duration}</p>
+                        <p><strong>Credits:</strong> ${course.credits}</p>
+                    </div>
+                </div>
+                
+                <div class="course-details-tabs">
+                    ${tabButtons}
+                    <div class="tab-btn" onclick="switchTab(event, 'details')">Course Details</div>
+                </div>
+                
+                ${tabContents}
+                
+                <div id="details" class="tab-content">
+                    <h3>Course Details</h3>
+                    <p><strong>Program Overview:</strong> This course provides comprehensive training in ${course.title.toLowerCase()} with a focus on both theoretical foundations and practical applications.</p>
+                    <p><strong>Learning Outcomes:</strong> Upon completion, students will have mastered the core concepts and developed practical skills applicable in real-world scenarios.</p>
+                    <p><strong>Assessment Methods:</strong> Combination of exams, projects, and continuous assessments.</p>
+                    <p><strong>Career Opportunities:</strong> Graduates can pursue careers in various fields including software development, data analysis, system architecture, and more.</p>
+                </div>
+            `;
+            
+            modalContent.innerHTML = content;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function generateResourceList(resources) {
+            return resources.map(resource => `
+                <div class="resource-item">
+                    <div>
+                        <div class="resource-name">${resource.name}</div>
+                        <small>${resource.type} • ${resource.format}</small>
+                    </div>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+            `).join('');
+        }
+
+        function switchTab(event, tabId) {
+            // Remove active class from all tabs and contents
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Add active class to clicked tab and corresponding content
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('courseModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside content
+        window.addEventListener('click', (event) => {
+            if (event.target === document.getElementById('courseModal')) {
+                closeModal();
+            }
+        });
+
+        // Handle download button clicks
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('download-btn')) {
+                e.preventDefault();
+                // In a real application, this would initiate a file download
+                alert('Download functionality would be implemented here. This is just a demo.');
+            }
+        });
+
+        // Form submission handlers
+        document.getElementById('loginForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Login functionality would be implemented here. Redirecting to dashboard...');
+            // window.location.href = 'dashboard.html';
+        });
+
+        document.getElementById('registerForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Registration functionality would be implemented here. Redirecting to login...');
+            // window.location.href = 'login.html';
+        });
+
+        // This would be handled by a server-side router in a real application
+        function showPage(pageId) {
+            document.querySelectorAll('[id$="-page"]').forEach(page => {
+                page.style.display = 'none';
+            });
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        // Check URL hash to show appropriate page
+        window.addEventListener('load', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash === 'login') showPage('login-page');
+            else if (hash === 'register') showPage('register-page');
+            else if (hash === 'resources') showPage('resources-page');
+            else if (hash === 'contact') showPage('contact-page');
+            else if (hash === 'dashboard') showPage('dashboard-page');
+        });
+    </script>
+</body>
+</html>

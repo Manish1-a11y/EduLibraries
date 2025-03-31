@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logging Out | EduLibraries</title>
+    <!-- This would typically be handled by backend -->
+</head>
+<body>
+    <div class="logout-message">
+        <h1>You have been logged out</h1>
+        <p>Thank you for using EduLibraries. You'll be redirected to the home page shortly.</p>
+        <a href="index.html" class="btn btn-primary">Return to Home</a>
+    </div>
+    
+    <script>
+        // In a real application, this would clear session cookies/tokens
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 3000);
+    </script>
+</body>
+</html>

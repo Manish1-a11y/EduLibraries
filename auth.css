@@ -1,0 +1,76 @@
+/* Password Recovery */
+.password-recovery {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.password-recovery h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.password-recovery p {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.password-recovery .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.password-recovery label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.password-recovery input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.password-recovery .btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+}
+
+.form-footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.form-footer a {
+    color: #1abc9c;
+    font-weight: 500;
+}
+
+/* Logout Page */
+.logout-message {
+    text-align: center;
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.logout-message h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.logout-message p {
+    color: #777;
+    margin-bottom: 30px;
+}

@@ -1,0 +1,43 @@
+/* Utility Classes */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #1abc9c;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #16a085;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #1abc9c;
+    border: 2px solid #1abc9c;
+}
+
+.btn-secondary:hover {
+    background-color: #1abc9c;
+    color: white;
+}
+
+.text-highlight {
+    color: #1abc9c;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}

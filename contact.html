@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - EduLibraries</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">EduLibraries</a>
+            
+            <nav class="nav-links">
+                <a href="about.html">About</a>
+                <a href="courses.html">Courses</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-secondary">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Contact Page Content -->
+    <section class="section" style="padding-top: 120px;">
+        <div class="container">
+            <h2 class="section-title">Contact <span class="text-highlight">Us</span></h2>
+            <p class="section-subtitle">Have questions or feedback? We'd love to hear from you.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px;">
+                <div>
+                    <h3 style="margin-bottom: 20px;">Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contact-name">Your Name</label>
+                            <input type="text" id="contact-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" rows="5" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                
+                <div>
+                    <h3 style="margin-bottom: 20px;">Contact Information</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Education Street, Academic City, AC 12345</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+11234567890">+1 (123) 456-7890</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contact@edulibraries.com">contact@edulibraries.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Friday: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                    
+                    <div style="margin-top: 40px;">
+                        <h3 style="margin-bottom: 20px;">Follow Us</h3>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/EduLibraries" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://twitter.com/EduLibraries" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/edulibraries" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/edulibraries" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 40px;">
+                        <h3 style="margin-bottom: 20px;">Frequently Asked Questions</h3>
+                        <div style="margin-bottom: 15px;">
+                            <h4 style="margin-bottom: 5px; cursor: pointer;" onclick="toggleFAQ(this)">How do I access premium resources? <i class="fas fa-chevron-down" style="float: right;"></i></h4>
+                            <p style="color: var(--text-light); display: none;">Premium resources are available to registered users. Simply create an account to get started. Some advanced features may require a subscription.</p>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <h4 style="margin-bottom: 5px; cursor: pointer;" onclick="toggleFAQ(this)">Can I contribute my own materials? <i class="fas fa-chevron-down" style="float: right;"></i></h4>
+                            <p style="color: var(--text-light); display: none;">Yes! We welcome contributions from educators and students. Contact us for more information about our submission guidelines and review process.</p>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <h4 style="margin-bottom: 5px; cursor: pointer;" onclick="toggleFAQ(this)">How do I report an issue with a resource? <i class="fas fa-chevron-down" style="float: right;"></i></h4>
+                            <p style="color: var(--text-light); display: none;">Please use the contact form to report any issues with resources. Include the resource name and a description of the problem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            if (answer.style.display === 'none' || !answer.style.display) {
+                answer.style.display = 'block';
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                answer.style.display = 'none';
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
